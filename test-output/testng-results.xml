@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-08-17T04:42:55Z" name="Suite1" finished-at="2019-08-17T04:43:36Z" duration-ms="41248">
+  <suite started-at="2019-08-17T04:59:01Z" name="Default suite" finished-at="2019-08-17T04:59:42Z" duration-ms="41910">
     <groups>
     </groups>
-    <test started-at="2019-08-17T04:42:55Z" name="Test" finished-at="2019-08-17T04:43:36Z" duration-ms="41248">
+    <test started-at="2019-08-17T04:59:01Z" name="Default test" finished-at="2019-08-17T04:59:42Z" duration-ms="41910">
       <class name="com.crossover.e2e.GMailTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:42:55Z" name="setUp" finished-at="2019-08-17T04:43:00Z" duration-ms="5113" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:59:01Z" name="setUp" finished-at="2019-08-17T04:59:06Z" duration-ms="5154" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testSendEmail()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:43:00Z" name="testSendEmail" finished-at="2019-08-17T04:43:36Z" duration-ms="36080" status="PASS">
+        <test-method signature="testSendEmail()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:59:06Z" name="testSendEmail" finished-at="2019-08-17T04:59:41Z" duration-ms="35111" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSendEmail -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:43:36Z" name="tearDown" finished-at="2019-08-17T04:43:36Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.crossover.e2e.GMailTest@3a079870]" started-at="2019-08-17T04:59:41Z" name="tearDown" finished-at="2019-08-17T04:59:42Z" duration-ms="1597" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.crossover.e2e.GMailTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -22,7 +22,7 @@ public class GMailTest {
 	    @BeforeMethod
 	    public void setUp() throws Exception {
 	        
-	        properties.load(new FileReader(new File("./resources/test.properties")));
+	        properties.load(new FileReader(new File("./src/test/resources/test.properties")));
 	        //Dont Change below line. Set this value in test.properties file incase you need to change it..
 	        System.setProperty("webdriver.chrome.driver",properties.getProperty("webdriver.chrome.driver") );
 	        driver = new ChromeDriver();
