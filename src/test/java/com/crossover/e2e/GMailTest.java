@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -30,13 +31,9 @@ public class GMailTest {
 	    
 	    @AfterMethod
 	    public void tearDown() throws Exception {
-//	        driver.quit();
+	        driver.quit();
 	    }
 
-	    /*
-	     * To login to gmail and compose a new mail with subject and mail body from the properties file and send it.
-	     * 
-	     */
 	    @Test
 	    public void testSendEmail() throws Exception {
 	    	
@@ -54,13 +51,13 @@ public class GMailTest {
 	        //- Compose an email from subject and body as mentioned in src/test/resources/test.properties
 	        WebElement composeElement = driver.findElement(By.xpath("//*[@role='button' and contains(text(),'Compose')]"));
 	        composeElement.click();
-	        Thread.sleep(5000);
+	        Thread.sleep(3000);
 	        
 	        //- Label email as "Social"
 	        driver.findElement(By.xpath("//div[@aria-label='More options']/div[2]")).click();
 	        driver.findElement(By.xpath("//div[contains(text(),'Label')]")).click();
 	        driver.findElement(By.xpath("//div[text()='Social']/*[1]")).click();
-	        
+	        driver.findElement(By.xpath("//div[text()='Apply']")).click();
 	        
 	        //- Send the email to the same account which was used to login (from and to addresses would be the same)
 	        driver.findElement(By.xpath("//textarea[@name='to']")).clear();
@@ -73,19 +70,31 @@ public class GMailTest {
 	        driver.findElement(By.xpath("//div[@aria-label='Message Body']")).sendKeys(emailBody);
 	        driver.findElement(By.xpath("//*[@role='button' and text()='Send']")).click();
 	        System.out.println("mail sent");
-	        Thread.sleep(4000);
+	        Thread.sleep(3000);
 	        
-	        
-	        //- Wait for the email to arrive in the Inbox - Mark email as starred	        
+	        //Navigating to All mails 
+	        driver.findElement(By.xpath("//div[contains(@data-tooltip,'Messages from social networks')]")).click();	      
+	        Thread.sleep(3000);
+
+	        //- Wait for the email to arrive in the Inbox>Social tab - Mark email as starred	        
 	        WebDriverWait wait = new WebDriverWait(driver, 5000);
-	        WebElement firstMail = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='tabpanel'][1]//table//tbody/*[1]/td[3]")));
-	        firstMail.click();
-//	        driver.findElement(By.xpath("//div[@role='tabpanel'][1]//table//tbody/*[1]/td[3]")).click();
+	        WebElement starIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='UI'][1]//table)[2]//tbody/*[1]/td[3]")));
+	        starIcon.click();
+	        System.out.println("first mail is starred");
 	        
-	        //- Open the received email
-	        driver.findElement(By.xpath("//div[@role='tabpanel'][1]//table//tbody/*[1]/td[5]")).click();
-	        Thread.sleep(5000);
-	        System.out.println("opened the mail");	        
+	        //- Open the received email	        
+	        driver.findElement(By.xpath("(//div[@class='UI'][1]//table)[2]//tbody/*[1]/td[5]")).click();
+	        Thread.sleep(2000);
+	        System.out.println("first mail is opened");
+	        
+	        //Click on the Label link above the opened mail
+	        WebElement LableLink= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='iH bzn']/div/div[4]/div[2]")));
+	        LableLink.click();	        
+	        
+	        //Verify if the Social checkbox is checked under Label
+	        System.out.println("To verify if the email is properly labelled");
+	        Assert.assertEquals(driver.findElement(By.xpath("//div[@title='Social']")).getAttribute("aria-checked"), "true");        
+	        
 	    }    
 		
 }

@@ -3,9 +3,7 @@
 <suite name="Suite1">
   <test thread-count="1" name="Test">
     <classes>
-     <class name=""/>
-     
-     
-    </classes>
+     <class name="com.crossover.e2e.GMailTest"/>
+     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
